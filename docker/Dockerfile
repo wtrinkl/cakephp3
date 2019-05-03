@@ -8,9 +8,6 @@ RUN set -x && \
   docker-php-ext-install -j${NPROC} pdo_mysql pdo_sqlite && \
   rm -rf /tmp/pear
 
-#RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
-#RUN mv composer.phar /usr/local/bin/composer
-
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
   # Make sure we're installing what we think we're installing!

@@ -1,10 +1,13 @@
 version: '3.1'
 services:
   web:
+          #build:
+          #context: ./docker
     image: wilfreedo/cakephp3
     container_name: 'test'
     volumes:
       - ./html/app:/var/www/html
+      - ./change-apache-user.sh:/usr/local/bin/change-apache-user.sh  
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/html/webroot
     ports:
@@ -13,7 +16,9 @@ services:
       - db
     tty: true
     stdin_open: true
-
+    env_file:
+      - apache.env
+    command: "/usr/local/bin/change-apache-user.sh 1000 1000"    
   db:
     image: mariadb
     container_name: 'test-db'
