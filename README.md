@@ -15,6 +15,12 @@ MYSQL_USER=cakephp
 MYSQL_ROOT_PASSWORD=mysql_root_password
 ```
 
+change file apache.env to run apache with the id of a certain user
+```
+USER_ID=1000
+GROUP_ID=1000
+```
+
 and run docker-compose up
 
 ```

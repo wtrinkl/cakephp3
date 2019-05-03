@@ -18,7 +18,7 @@ services:
     stdin_open: true
     env_file:
       - apache.env
-    command: "/usr/local/bin/change-apache-user.sh 1000 1000"    
+    command: /usr/local/bin/change-apache-user.sh    
   db:
     image: mariadb
     container_name: 'test-db'
